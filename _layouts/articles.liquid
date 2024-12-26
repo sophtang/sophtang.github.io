@@ -53,14 +53,14 @@
       {% for author in entry.author_array %}
         {% assign author_is_self = false %}
         {% assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' %}
-        {% assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)','<sup>\1</sup>' %}
-        
+        {% assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' %}
+
         {% if site.scholar.last_name contains author_last_name %}
           {% if site.scholar.first_name contains author.first %}
             {% assign author_is_self = true %}
           {% endif %}
         {% endif %}
-        
+
         {% assign coauthor_url = null %}
         {% assign clean_last_name = author_last_name | downcase | remove_accents %}
         {% if site.data.coauthors[clean_last_name] %}
@@ -71,22 +71,27 @@
             {% endif %}
           {% endfor %}
         {% endif %}
-        
+
         {%- if forloop.first == false -%}
-          {%- if forloop.last and forloop.length > 1 -%} and {%- else -%}, {%- endif -%}
+          {%- if forloop.last and forloop.length > 1 -%}and {%- else -%},{%- endif -%}
         {%- endif -%}
-        
+
         {% if author_is_self %}
           <em>
-            <strong>{{ author.first }} {{ author_last_html }}</strong>
+            <strong>
+              {{- author.first }}
+              {{ author_last_html -}}
+            </strong>
           </em>
         {% else %}
           {% if coauthor_url %}
             <a href="{{ coauthor_url }}">
-              {{ author.first }} {{ author_last_html }}
+              {{ author.first }}
+              {{ author_last_html }}
             </a>
           {% else %}
-            {{ author.first }} {{ author_last_html }}
+            {{ author.first }}
+            {{ author_last_html }}
           {% endif %}
         {% endif %}
       {% endfor %}

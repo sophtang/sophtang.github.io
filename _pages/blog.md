@@ -2,7 +2,7 @@
 layout: page
 permalink: /articles/
 title: Technical Articles
-description:  
+description:
 nav: true
 nav_order: 3
 
