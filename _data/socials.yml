@@ -45,7 +45,7 @@ scholar_userid: WfhDwdAAAAAJ # your Google Scholar ID
 # x_username: # your X handle
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
-custom_social: # can be any name here other than the ones already defined above
+"""custom_social: # can be any name here other than the ones already defined above
   logo: ./assets/img/substack.png # can be png, svg, jpg
   title: Substack
-  url: https://alchemybio.substack.com/
+  url: https://alchemybio.substack.com/"""
