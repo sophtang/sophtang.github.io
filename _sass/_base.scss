@@ -1146,6 +1146,18 @@ nav[data-toggle="toc"] {
   z-index: 999;
 }
 
+.image-spacing {
+  margin: 0 20px 20px 0; /* Adjust margins as needed */
+}
+
+.profile.float-left {
+  margin-right: 20px; /* Add space if the image is floated left */
+}
+
+.profile.float-right {
+  margin-left: 20px; /* Add space if the image is floated right */
+}
+
 #toc-sidebar {
   z-index: 1;
 }
