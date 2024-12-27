@@ -56,6 +56,14 @@ layout: default
       {% include selected_papers.liquid %}
     {% endif %}
 
+    <!-- Technical articles -->
+    {% if page.technical_articles %}
+      <h2>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected Articles</a>
+      </h2>
+      {% include selected_papers.liquid %}
+    {% endif %}
+
     <!-- Social -->
     {% if page.social %}
       <div class="social">
