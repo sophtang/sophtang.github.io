@@ -234,10 +234,9 @@ scholar:
   locale: en
 
   source: /_bibliography/
-  sources:
+  bibliography: 
     - papers.bib
     - articles.bib
-  #bibliography: 
   bibliography_template: bib
   # Note: if you have latex math in your bibtex, the latex filter
   # preprocessing may conflict with MathJAX if the latter is enabled.
