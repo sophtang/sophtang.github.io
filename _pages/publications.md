@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: *Equal contribution
+description:
 nav: true
 nav_order: 2
 
@@ -31,6 +31,8 @@ scholar:
   group_by: year
   group_order: descending
 ---
+
+<p style="font-size:0.9em; color:#666;">* Indicates equal contribution</p>
 
 <!-- _pages/publications.md -->
 
