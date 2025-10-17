@@ -23,10 +23,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/articles/";
           },
-        },{id: "news-gumbel-softmax-flow-matching-is-out-on-arxiv-check-out-our-work-on-guided-discrete-flow-matching-on-the-simplex",
-          title: 'Gumbel-Softmax Flow Matching is out on arXiv! Check out our work on guided...',
-          description: "",
-          section: "News",},{id: "news-my-review-paper-on-peptide-functionalized-nanoparticles-for-brain-targeted-therapeutics-is-published-in-drug-delivery-and-translational-research",
+        },{id: "news-my-review-paper-on-peptide-functionalized-nanoparticles-for-brain-targeted-therapeutics-is-published-in-drug-delivery-and-translational-research",
           title: 'My review paper on Peptide-Functionalized Nanoparticles for Brain-Targeted Therapeutics is published in Drug...',
           description: "",
           section: "News",},{id: "news-peptune-de-novo-generation-of-therapeutic-peptides-with-multi-objective-guided-discrete-diffusion-accepted-at-icml-2025-come-by-us-at-poster-session-4-to-chat-free-peptune-stickers",
@@ -34,6 +31,9 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "news-branched-schrödinger-bridge-matching-released-on-arxiv-and-accepted-at-icml-exait-workshop-come-by-our-poster-in-vancouver",
           title: 'Branched Schrödinger Bridge Matching released on arXiv and accepted at ICML ExAIT workshop!...',
+          description: "",
+          section: "News",},{id: "news-tr2-d2-is-out-read-our-paper-on-off-policy-rl-for-discrete-diffusion-fine-tuning-with-multi-objective-rewards",
+          title: 'TR2-D2 is out! Read our paper on off-policy RL for discrete diffusion fine-tuning...',
           description: "",
           section: "News",},{
       id: 'light-theme',
