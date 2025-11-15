@@ -23,10 +23,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/articles/";
           },
-        },{id: "news-my-review-paper-on-peptide-functionalized-nanoparticles-for-brain-targeted-therapeutics-is-published-in-drug-delivery-and-translational-research",
-          title: 'My review paper on Peptide-Functionalized Nanoparticles for Brain-Targeted Therapeutics is published in Drug...',
-          description: "",
-          section: "News",},{id: "news-peptune-de-novo-generation-of-therapeutic-peptides-with-multi-objective-guided-discrete-diffusion-accepted-at-icml-2025-come-by-us-at-poster-session-4-to-chat-free-peptune-stickers",
+        },{id: "news-peptune-de-novo-generation-of-therapeutic-peptides-with-multi-objective-guided-discrete-diffusion-accepted-at-icml-2025-come-by-us-at-poster-session-4-to-chat-free-peptune-stickers",
           title: 'PepTune: De Novo Generation of Therapeutic Peptides with Multi-Objective-Guided Discrete Diffusion accepted at...',
           description: "",
           section: "News",},{id: "news-branched-schrödinger-bridge-matching-released-on-arxiv-and-accepted-at-icml-exait-workshop-come-by-our-poster-in-vancouver",
