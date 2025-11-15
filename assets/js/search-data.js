@@ -35,6 +35,9 @@ ninja.data = [{
           section: "News",},{id: "news-tr2-d2-is-out-read-our-paper-on-off-policy-rl-for-discrete-diffusion-fine-tuning-with-multi-objective-rewards",
           title: 'TR2-D2 is out! Read our paper on off-policy RL for discrete diffusion fine-tuning...',
           description: "",
+          section: "News",},{id: "news-entangledsbm-https-arxiv-org-abs-2511-07406-is-out-read-our-paper-on-simulating-interacting-multi-particle-systems-with-novel-schrödinger-bridge-matching-framework-we-will-present-entangledsbm-at-neurips-2025-in-the-fpi-https-fpineurips-framer-website-and-spigm-https-spigmworkshopv3-github-io-workshops-so-come-say-hi",
+          title: '[EntangledSBM](https://arxiv.org/abs/2511.07406) is out! Read our paper on simulating interacting multi-particle systems with novel...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
