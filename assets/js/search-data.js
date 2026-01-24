@@ -35,7 +35,7 @@ ninja.data = [{
           section: "News",},{id: "news-entangledsbm-is-out-read-our-paper-on-simulating-interacting-multi-particle-systems-with-a-novel-schrödinger-bridge-matching-framework",
           title: 'EntangledSBM is out! Read our paper on simulating interacting multi-particle systems with a...',
           description: "",
-          section: "News",},{id: "news-awarded-the-cra-outstanding-undergraduate-researcher-award-1-of-8-across-north-america-read-the-news-article",
+          section: "News",},{id: "news-awarded-the-cra-outstanding-undergraduate-researcher-award-1-of-8-across-north-america-read-the-news-article-here",
           title: 'Awarded the CRA Outstanding Undergraduate Researcher Award (1 of 8 across North America)!...',
           description: "",
           section: "News",},{
