@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-06-11
+date: 2026-01-26
 inline: true
 related_posts: false
 ---
 
-[Branched Schrödinger Bridge Matching](https://arxiv.org/abs/2506.09007) released on arXiv and accepted at [ICML ExAIT](https://exait-workshop.github.io/) workshop! Come by our poster in Vancouver!
+[Branched Schrödinger Bridge Matching](https://arxiv.org/abs/2506.09007) is accepted at [ICLR 2026](https://iclr.cc/) main! 🌳🧫 Looking forward to presenting in Rio! 🇧🇷
