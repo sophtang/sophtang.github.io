@@ -38,6 +38,9 @@ ninja.data = [{
           section: "News",},{id: "news-branched-schrödinger-bridge-matching-is-accepted-at-iclr-2026-main-looking-forward-to-presenting-in-rio",
           title: 'Branched Schrödinger Bridge Matching is accepted at ICLR 2026 main! 🌳🧫 Looking forward...',
           description: "",
+          section: "News",},{id: "news-new-tutorial-paper-on-the-foundations-of-schrödinger-bridges-for-generative-modeling-220-pages-24-figures-is-out-on-arxiv",
+          title: 'New tutorial paper on the Foundations of Schrödinger Bridges for Generative Modeling (220...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
