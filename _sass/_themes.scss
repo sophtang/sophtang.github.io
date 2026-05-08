@@ -5,20 +5,20 @@
 @use "sass:color";
 
 :root {
-  --global-bg-color: #{$white-color};
+  --global-bg-color: #{$bg-deep};
   --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
-  --global-text-color-light: #{$grey-color};
+  --global-text-color: #{$grey-color-dark};
+  --global-text-color-light: #{$grey-color-light};
   --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
+  --global-hover-color: #{$accent-bright};
   --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-dark};
-  --global-footer-text-color: #{$grey-color-light};
-  --global-footer-link-color: #{$white-color};
+  --global-footer-bg-color: #{$bg-surface};
+  --global-footer-text-color: #{$grey-color};
+  --global-footer-link-color: #{$purple-color};
   --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0, 0, 0, 0.1);
+  --global-divider-color: rgba(107, 103, 238, 0.12);
   --global-card-bg-color: #{$white-color};
-  --global-highlight-color: #{$red-color-dark};
+  --global-highlight-color: #{$accent-bright};
   --global-back-to-top-bg-color: rgba(
     #{color.channel($black-color, "red", $space: rgb)},
     #{color.channel($black-color, "green", $space: rgb)},
@@ -80,8 +80,8 @@ html[data-theme="dark"] {
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$grey-color-light};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
+  --global-theme-color: #9793F8;
+  --global-hover-color: #9793F8;
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-light};
   --global-footer-text-color: #{$grey-color-dark};
@@ -118,6 +118,25 @@ html[data-theme="dark"] {
 
   .only-dark {
     display: block;
+  }
+
+  .news .table,
+  .news .table th,
+  .news .table td {
+    color: var(--global-text-color);
+    background-color: transparent;
+    --bs-table-color: var(--global-text-color);
+    --bs-table-bg: transparent;
+    --bs-table-color-state: var(--global-text-color);
+    --bs-table-bg-state: transparent;
+  }
+
+  .news a.news-title {
+    color: var(--global-text-color);
+
+    &:hover {
+      color: var(--global-theme-color);
+    }
   }
 }
 

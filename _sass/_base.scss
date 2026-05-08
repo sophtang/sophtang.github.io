@@ -38,14 +38,41 @@ table {
 a,
 table.table a {
   color: var(--global-theme-color);
+  text-decoration: none;
+  background-image: linear-gradient(rgba(107, 103, 238, 0.55), rgba(107, 103, 238, 0.55));
+  background-position: 0 calc(100% - 1px);
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.28s ease, color 0.2s ease;
 
   &:hover {
     color: var(--global-theme-color);
-    text-decoration: underline;
+    text-decoration: none;
+    background-size: 100% 1px;
   }
 
   &:hover:after :not(.nav-item.dropdown) {
     width: 100%;
+  }
+}
+
+a.btn,
+.publications .links a,
+.publications .author a,
+.publications .more-authors,
+.btn-group a,
+.navbar a,
+.nav-link,
+.social a,
+.contact-icons a,
+footer a {
+  background-image: none;
+  background-size: 0 0;
+  transition: none;
+
+  &:hover {
+    background-image: none;
+    background-size: 0 0;
   }
 }
 
@@ -295,6 +322,9 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-brand {
     color: var(--global-text-color);
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.35rem;
+    letter-spacing: 0.005em;
   }
 
   .navbar-nav .nav-item .nav-link {
@@ -766,53 +796,119 @@ footer.sticky-bottom {
       }
 
       .title {
-        font-weight: bolder;
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-weight: 500;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        letter-spacing: -0.005em;
       }
 
       .author {
+        font-family: 'DM Sans', -apple-system, sans-serif;
+        font-size: 0.85rem;
+        font-weight: 350;
+        color: var(--global-text-color);
+        line-height: 1.55;
+
         a {
-          border-bottom: 1px dashed var(--global-theme-color);
+          color: var(--global-text-color);
+          text-decoration: none;
+          background-image: none;
+          background-size: 0 0;
+          border-bottom: none;
+          font-weight: 350;
+          transition: color 0.2s ease;
 
           &:hover {
-            border-bottom-style: solid;
+            color: var(--global-theme-color);
             text-decoration: none;
+            background-image: none;
+            background-size: 0 0;
+            border-bottom: none;
           }
         }
 
         > em {
-          border-bottom: 1px solid;
+          font-family: 'DM Sans', -apple-system, sans-serif;
           font-style: normal;
+          font-weight: 700;
+          color: var(--global-text-color);
+          border-bottom: 1px solid;
+
+          strong {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            font-weight: 700;
+          }
         }
 
         > span.more-authors {
           color: var(--global-text-color-light);
-          border-bottom: 1px dashed var(--global-text-color-light);
+          border-bottom: none;
           cursor: pointer;
+          transition: color 0.2s ease;
 
           &:hover {
-            color: var(--global-text-color);
-            border-bottom: 1px dashed var(--global-text-color);
+            color: var(--global-theme-color);
+            border-bottom: none;
           }
         }
+      }
+
+      .periodical {
+        font-family: 'DM Sans', -apple-system, sans-serif;
+        font-size: 0.8rem;
+        color: var(--global-text-color-light);
+        line-height: 1.55;
+
+        em {
+          font-family: 'DM Sans', -apple-system, sans-serif;
+          font-style: italic;
+        }
+      }
+
+      div.abstract.hidden.open p,
+      .abstract p {
+        font-family: 'DM Sans', -apple-system, sans-serif;
+        font-size: 0.92rem;
+        line-height: 1.6;
+        color: var(--global-text-color-light);
       }
 
       .links {
         a.btn {
           color: var(--global-text-color);
           border: 1px solid var(--global-text-color);
+          background-color: transparent;
           padding-left: 1rem;
           padding-right: 1rem;
           padding-top: 0.25rem;
           padding-bottom: 0.25rem;
           margin-left: 0;
+          transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease,
+            transform 0.2s ease, box-shadow 0.2s ease;
 
           &:hover {
             color: var(--global-theme-color);
             border-color: var(--global-theme-color);
+            background-color: rgba(107, 103, 238, 0.10);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(107, 103, 238, 0.18);
+          }
+
+          &:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(107, 103, 238, 0.15);
           }
         }
         a.award.btn {
           border-color: var(--global-highlight-color);
+
+          &:hover {
+            border-color: var(--global-highlight-color);
+            color: var(--global-highlight-color);
+            background-color: rgba(68, 64, 198, 0.10);
+            box-shadow: 0 6px 16px rgba(68, 64, 198, 0.20);
+          }
         }
       }
 

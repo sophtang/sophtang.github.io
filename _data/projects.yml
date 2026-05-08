@@ -1,0 +1,11 @@
+- title: Foundations of Schrödinger Bridges for Generative Modeling
+  description: A self-contained guide to Schrödinger bridges and their role in modern generative modelling.
+  url: https://sophtang.github.io/foundations-of-sbm/
+
+- title: Branched Schrödinger Bridge Matching
+  description: Generative modelling for branching particle systems via Schrödinger bridge matching.
+  url: https://sophtang.github.io/branch-sbm/
+
+- title: PeptiVerse
+  description: A unified platform for therapeutic peptide property prediction.
+  url: https://huggingface.co/spaces/ChatterjeeLab/PeptiVerse
