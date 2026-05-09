@@ -32,7 +32,7 @@ scholar:
   group_order: descending
 ---
 
-<p style="font-size:0.9em; color:#666;">* Indicates equal contribution</p>
+<p style="font-size:0.9em; color: var(--global-text-color-light);">* Indicates equal contribution</p>
 
 <!-- _pages/publications.md -->
 
