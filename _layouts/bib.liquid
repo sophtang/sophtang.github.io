@@ -31,7 +31,7 @@
         {% elsif entry.preview contains '.mp4' or entry.preview contains '.webm' %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
           <video
-            class="preview z-depth-1 rounded"
+            class="preview z-depth-1 rounded zoomable-video"
             style="width: 100%; height: auto;"
             autoplay
             loop
