@@ -28,6 +28,18 @@
       {% if entry.preview %}
         {% if entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
+        {% elsif entry.preview contains '.mp4' or entry.preview contains '.webm' %}
+          {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+          <video
+            class="preview z-depth-1 rounded"
+            style="width: 100%; height: auto;"
+            autoplay
+            loop
+            muted
+            playsinline
+          >
+            <source src="{{ entry_path | relative_url }}" type="video/mp4">
+          </video>
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
           {%
