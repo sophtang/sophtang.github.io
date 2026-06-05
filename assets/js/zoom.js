@@ -1,1 +1,1 @@
-$(document).ready(function(){medium_zoom=mediumZoom("[data-zoomable]",{background:getComputedStyle(document.documentElement).getPropertyValue("--global-bg-color")+"ee"})});
+$(document).ready(function(){function e(){return Math.round(.1*window.innerHeight)}medium_zoom=mediumZoom("[data-zoomable]",{margin:e(),background:getComputedStyle(document.documentElement).getPropertyValue("--global-bg-color")+"ee"}),window.addEventListener("resize",function(){medium_zoom&&medium_zoom.update({margin:e()})})});
