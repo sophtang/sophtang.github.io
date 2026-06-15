@@ -41,6 +41,9 @@ ninja.data = [{
           section: "News",},{id: "news-new-tutorial-paper-on-the-foundations-of-schrödinger-bridges-for-generative-modeling-220-pages-24-figures-is-out-on-arxiv",
           title: 'New tutorial paper on the Foundations of Schrödinger Bridges for Generative Modeling (220...',
           description: "",
+          section: "News",},{id: "news-a2d2-and-mrnautilus-are-out-a-new-framework-for-reward-alignment-of-any-length-discrete-diffusion-with-adaptive-decoding-and-an-experimentally-validated-multi-objective-mrna-generative-model",
+          title: 'A2D2 🃏 and mRNAutilus 🧬 are out! A new framework for reward-alignment of...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
