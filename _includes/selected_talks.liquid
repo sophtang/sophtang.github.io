@@ -1,0 +1,70 @@
+<div class="publications">
+  <ol class="bibliography">
+    {% for talk in site.data.talks %}
+      <li>
+        <div class="row">
+          {% if site.enable_publication_thumbnails %}
+            <div class="col col-sm-2 abbr">
+              {% if talk.preview %}
+                {% if talk.preview contains '://' %}
+                  <img class="preview z-depth-1 rounded" src="{{ talk.preview }}">
+                {% elsif talk.preview contains '.mp4' or talk.preview contains '.webm' %}
+                  {% assign talk_preview_path = talk.preview | prepend: '/assets/img/publication_preview/' %}
+                  <video
+                    class="preview z-depth-1 rounded zoomable-video"
+                    style="width: 100%; height: auto;"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                  >
+                    <source src="{{ talk_preview_path | relative_url }}" type="video/mp4">
+                  </video>
+                {% else %}
+                  {% assign talk_preview_path = talk.preview | prepend: '/assets/img/publication_preview/' %}
+                  {%
+                    include figure.liquid
+                    loading="eager"
+                    path=talk_preview_path
+                    sizes="200px"
+                    class="preview z-depth-1 rounded"
+                    zoomable=true
+                    alt=talk.title
+                  %}
+                {% endif %}
+              {% endif %}
+            </div>
+          {% endif %}
+
+          <div class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+            <!-- Title (same font as Updates) -->
+            <div class="talk-title">{{ talk.title }}</div>
+            <!-- Venue and date (light grey, like the publications author list) -->
+            {% if talk.venue or talk.date %}
+              <div class="talk-meta">
+                {{ talk.venue }}{% if talk.venue and talk.date %}, {% endif %}{{ talk.date }}
+              </div>
+            {% endif %}
+
+            <!-- Links/Buttons -->
+            <div class="links">
+              {% if talk.watch %}
+                <a href="{{ talk.watch }}" class="btn btn-sm z-depth-0" role="button">Watch</a>
+              {% endif %}
+              {% if talk.slides %}
+                {% if talk.slides contains '://' %}
+                  <a href="{{ talk.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+                {% else %}
+                  <a href="{{ talk.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+                {% endif %}
+              {% endif %}
+              {% if talk.website %}
+                <a href="{{ talk.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+</div>

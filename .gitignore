@@ -13,3 +13,5 @@ vendor
 .idea
 # local image backups (not for commit)
 .image-backup/
+# talks section hidden for now
+_data/talks.yml

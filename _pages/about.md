@@ -9,7 +9,7 @@ profile:
   image: pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>sophtang [at] seas.upenn.edu</p>
+    <p>sophtang [at] engineering.upenn.edu</p>
 
 announcements:
   enabled: true # includes a list of news items
@@ -17,6 +17,7 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
+invited_talks: false # includes the invited talks listed in _data/talks.yml
 technical_articles: false
 social: true # includes social icons at the bottom of the page
 ---
@@ -79,5 +80,94 @@ If any of these topics sparks your interest, I would love to connect via [Linke
   font-style: italic;
   font-size: inherit;
   font-weight: inherit;
+}
+
+.post article .publications .talk-title {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--global-text-color);
+}
+.post article .publications .talk-meta {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 350;
+  line-height: 1.55;
+  color: var(--global-text-color-light);
+}
+
+.post article .news .table-responsive {
+  max-height: 17rem !important;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.post article hr.section-divider {
+  border: 0;
+  border-top: 1px solid var(--global-divider-color);
+  margin: 2.75rem 0 2rem;
+}
+
+.post article a.section-more {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--global-theme-color);
+  text-decoration: none;
+  background-image: none;
+  background-size: 0 0;
+  border-bottom: none;
+}
+.post article a.section-more:hover {
+  color: var(--global-theme-color);
+  text-decoration: none;
+  background-image: none;
+  border-bottom: none;
+}
+.post article a.section-more .arrow {
+  display: inline-block;
+  margin-left: 0.15em;
+  color: var(--global-theme-color);
+  transition: transform 0.2s ease;
+}
+.post article a.section-more:hover .arrow {
+  transform: translateX(4px);
+}
+.profile .profile-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0.6rem;
+}
+.profile .profile-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.6rem;
+  color: var(--global-text-color);
+  background-image: none;
+  background-size: 0 0;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease,
+    transform 0.2s ease, box-shadow 0.2s ease;
+}
+.profile .profile-social a:hover {
+  color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+  background-color: rgba(107, 103, 238, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(107, 103, 238, 0.15);
+}
+.profile .profile-social a i {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.profile .profile-social a i::before {
+  color: inherit;
 }
 </style>
