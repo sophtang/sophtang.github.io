@@ -52,24 +52,43 @@ news: true
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <hr class="section-divider">
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected Publications</a>
+      <h2 class="section-heading">
+        <a class="section-link hover-reveal" href="{{ '/publications/' | relative_url }}" aria-label="Selected Publications: see all papers">
+          <span class="section-link-label hover-reveal-label">Selected Publications</span><span class="hover-more-anchor" aria-hidden="true"><span class="hover-more">
+            <span class="more-text">all papers</span>
+            <span class="more-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <polyline points="13 5 20 12 13 19"></polyline>
+              </svg>
+            </span>
+          </span></span>
+        </a>
       </h2>
       {% include selected_papers.liquid %}
-      <a class="section-more" href="{{ '/publications/' | relative_url }}">All papers <span class="arrow">&rarr;</span></a>
     {% endif %}
 
     <!-- Invited talks -->
     {% if page.invited_talks %}
       <hr class="section-divider">
-      <h2>Invited Talks</h2>
+      <h2 class="section-heading">Invited Talks</h2>
       {% include selected_talks.liquid %}
     {% endif %}
 
     <!-- Technical articles -->
     {% if page.technical_articles %}
-      <h2>
-        <a href="{{ '/articles/' | relative_url }}" style="color: inherit">Selected Articles</a>
+      <h2 class="section-heading">
+        <a class="section-link hover-reveal" href="{{ '/articles/' | relative_url }}" aria-label="Selected Articles: see all articles">
+          <span class="section-link-label hover-reveal-label">Selected Articles</span><span class="hover-more-anchor" aria-hidden="true"><span class="hover-more">
+            <span class="more-text">all articles</span>
+            <span class="more-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <polyline points="13 5 20 12 13 19"></polyline>
+              </svg>
+            </span>
+          </span></span>
+        </a>
       </h2>
       {% include selected_articles.liquid %}
     {% endif %}

@@ -58,8 +58,38 @@
 
   <!-- Entry bib key -->
   <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+    <!-- Target of the "Paper" button, reused to make the title itself a link -->
+    {% assign paper_link = null %}
+    {% if entry.doi %}
+      {% if entry.doi contains '://' %}
+        {% assign paper_link = entry.doi %}
+      {% else %}
+        {% assign paper_link = entry.doi | prepend: 'https://doi.org/' %}
+      {% endif %}
+    {% elsif entry.arxiv %}
+      {% assign paper_link = entry.arxiv | prepend: 'https://arxiv.org/abs/' %}
+    {% elsif entry.url %}
+      {% assign paper_link = entry.url %}
+    {% endif %}
+
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    <div class="title">
+      {% if paper_link %}
+        <a class="hover-reveal" href="{{ paper_link }}" target="_blank" rel="noopener">
+          <span class="hover-reveal-label">{{ entry.title }}</span><span class="hover-more-anchor" aria-hidden="true"><span class="hover-more">
+            <span class="more-text">read</span>
+            <span class="more-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <polyline points="13 5 20 12 13 19"></polyline>
+              </svg>
+            </span>
+          </span></span>
+        </a>
+      {% else %}
+        {{ entry.title }}
+      {% endif %}
+    </div>
     <!-- Author -->
     <div class="author">
       {% for author in entry.author_array %}
@@ -157,7 +187,7 @@
         <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
       {% endif %}
       {% if entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
+        <a href="{{ paper_link }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
       {% endif %}
       {% if entry.arxiv %}
         <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>

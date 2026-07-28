@@ -1,0 +1,33 @@
+# Invited talks shown in the "Invited Talks" section on the about page.
+# Rendered by _includes/selected_talks.liquid as a compact timeline (no thumbnails).
+# Order here doesn't matter: talks are sorted by `date`, most recent first.
+#
+# Fields (all optional except title):
+#   title:   talk title
+#   venue:   where the talk was given
+#   date:    e.g. "June 2026" — used for sorting, so keep the "Month Year" form
+#   watch:   URL to the recording (renders a "Watch" button)
+#   slides:  URL, or a filename in assets/pdf/ (renders a "Slides" button)
+
+- title: Expanding Flows for Fast and Flexible Generation Beyond the Fixed Canvas
+  venue: Microsoft Research New England Generative Modeling & Sampling Seminar
+  date: July 2026
+  watch: https://youtu.be/KbZ2ekmZO90?si=SNncY1kFfyXnmizW
+  slides: https://sophtang.github.io/efm-slides.pdf
+
+- title: Spherical Equivariant Graph Transformers
+  venue: Cambridge Ellis Unit Summer School on Probabilistic Machine Learning 2026
+  date: July 2026
+  slides: https://sophtang.github.io/cambridge-ellis-slides.pdf
+
+- title: "Peptune: De Novo Generation of Therapeutic Peptides with Guided Discrete Diffusion"
+  venue: Discrete Diffusion Reading Group
+  date: November 2025
+  watch: https://youtu.be/NX2Mth_Epvk?si=H-wsx2Qd5R2Gu_9t
+  slides: https://sophtang.github.io/peptune-dd-slides.pdf
+
+- title: Branched Schrödinger Bridge Matching
+  venue: Starkly Speaking Reading Group
+  date: July 2025
+  watch: https://youtu.be/inVYA0pQ4Wg?si=rB2gktrvVoglvFL-
+  slides: https://sophtang.github.io/branchsbm-slides.pdf

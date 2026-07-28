@@ -32,7 +32,27 @@ scholar:
   group_order: descending
 ---
 
-<p style="font-size:0.9em; color: var(--global-text-color-light);">* Indicates equal contribution</p>
+<p class="pub-intro">
+  Full list on <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener">Google Scholar</a> ↗
+</p>
+
+<p class="pub-note">* Indicates equal contribution</p>
+
+<style>
+.pub-intro {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 0.9rem;
+  color: var(--global-text-color-light);
+  margin: -0.5rem 0 0.4rem;
+}
+
+.pub-note {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+  margin: 0;
+}
+</style>
 
 <!-- _pages/publications.md -->
 

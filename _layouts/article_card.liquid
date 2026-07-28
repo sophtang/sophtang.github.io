@@ -1,0 +1,51 @@
+---
+---
+{% comment %}
+  jekyll-scholar bibliography template for /articles/.
+  Renders each entry as a single horizontal card whose whole surface links to
+  the article, styled to match the project page cards in _pages/projects.md.
+{% endcomment %}
+
+{% assign article_url = entry.blog | default: entry.url %}
+{% if article_url contains 'arxiv.org' %}
+  {% assign source = 'arXiv' %}
+  {% assign cta = 'Read on arXiv' %}
+{% else %}
+  {% assign source = 'Alchemy Bio' %}
+  {% assign cta = 'Read the article' %}
+{% endif %}
+
+<article class="ac-card" id="{{ entry.key }}">
+  {% if entry.preview %}
+    <div class="ac-media">
+      {% if entry.preview contains '://' %}
+        <img class="ac-media-el" src="{{ entry.preview }}" alt="{{ entry.title }} preview" loading="lazy">
+      {% elsif entry.preview contains '.mp4' or entry.preview contains '.webm' %}
+        {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
+        <video class="ac-media-el" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+          <source src="{{ entry_path }}" type="video/mp4">
+        </video>
+      {% else %}
+        {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
+        <img class="ac-media-el" src="{{ entry_path }}" alt="{{ entry.title }} preview" loading="lazy">
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="ac-body">
+    <h3 class="ac-title">
+      <a class="ac-stretch" href="{{ article_url }}" target="_blank" rel="noopener">{{ entry.title }}</a>
+    </h3>
+    <p class="ac-meta">
+      {%- if entry.month %}{{ entry.month | capitalize }} {% endif %}{{ entry.year }} · {{ source }}
+    </p>
+    {% if entry.note %}<p class="ac-desc">{{ entry.note | strip }}</p>{% endif %}
+    <span class="ac-cta">
+      {{ cta }}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </span>
+  </div>
+</article>

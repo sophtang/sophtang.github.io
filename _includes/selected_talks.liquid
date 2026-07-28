@@ -1,70 +1,107 @@
-<div class="publications">
-  <ol class="bibliography">
-    {% for talk in site.data.talks %}
-      <li>
-        <div class="row">
-          {% if site.enable_publication_thumbnails %}
-            <div class="col col-sm-2 abbr">
-              {% if talk.preview %}
-                {% if talk.preview contains '://' %}
-                  <img class="preview z-depth-1 rounded" src="{{ talk.preview }}">
-                {% elsif talk.preview contains '.mp4' or talk.preview contains '.webm' %}
-                  {% assign talk_preview_path = talk.preview | prepend: '/assets/img/publication_preview/' %}
-                  <video
-                    class="preview z-depth-1 rounded zoomable-video"
-                    style="width: 100%; height: auto;"
-                    autoplay
-                    loop
-                    muted
-                    playsinline
-                  >
-                    <source src="{{ talk_preview_path | relative_url }}" type="video/mp4">
-                  </video>
-                {% else %}
-                  {% assign talk_preview_path = talk.preview | prepend: '/assets/img/publication_preview/' %}
-                  {%
-                    include figure.liquid
-                    loading="eager"
-                    path=talk_preview_path
-                    sizes="200px"
-                    class="preview z-depth-1 rounded"
-                    zoomable=true
-                    alt=talk.title
-                  %}
-                {% endif %}
-              {% endif %}
-            </div>
-          {% endif %}
+{%- comment -%}
+  Invited talks list (about page). Data lives in _data/talks.yml.
 
-          <div class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
-            <!-- Title (same font as Updates) -->
+  Talks are sorted by `date` (e.g. "July 2026"), most recent first, with the
+  order in the YAML file preserved for talks that share a month. The sort key is
+  built as YYYYMM + an inverted index, so a plain string sort + reverse does the
+  right thing; the original index is carried after "#" so we can look the talk
+  back up.
+{%- endcomment -%}
+
+{%- assign month_names = 'january,february,march,april,may,june,july,august,september,october,november,december' | split: ',' -%}
+
+{%- capture talk_sort_keys -%}
+  {%- for talk in site.data.talks -%}
+    {%- assign talk_date = talk.date | default: '' | downcase | replace: ',', ' ' -%}
+
+    {%- assign talk_month = '00' -%}
+    {%- for month_name in month_names -%}
+      {%- assign month_prefix = month_name | slice: 0, 3 -%}
+      {%- if talk_date contains month_prefix -%}
+        {%- assign talk_month = forloop.index | prepend: '0' | slice: -2, 2 -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- assign talk_year = '0000' -%}
+    {%- assign date_parts = talk_date | split: ' ' -%}
+    {%- for date_part in date_parts -%}
+      {%- assign part_size = date_part | size -%}
+      {%- if part_size == 4 -%}
+        {%- assign part_number = date_part | plus: 0 -%}
+        {%- if part_number > 1000 -%}
+          {%- assign talk_year = date_part -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- assign inverted_index = 9999 | minus: forloop.index0 -%}
+    {{ talk_year }}{{ talk_month }}{{ inverted_index }}#{{ forloop.index0 }},
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- assign sorted_talk_keys = talk_sort_keys | split: ',' | sort | reverse -%}
+
+<div class="talks">
+  <ol class="talk-list">
+    {%- for sort_key in sorted_talk_keys -%}
+      {%- assign talk_index = sort_key | split: '#' | last | plus: 0 -%}
+      {%- assign talk = site.data.talks[talk_index] -%}
+
+      {%- comment -%}
+        Shorten month names longer than four letters ("September 2025" ->
+        "Sep 2025") so the date rail keeps a uniform width. May/June/July are
+        already short enough and stay as written.
+      {%- endcomment -%}
+      {%- capture talk_date_display -%}
+        {%- assign date_words = talk.date | default: '' | split: ' ' -%}
+        {%- for date_word in date_words -%}
+          {%- assign word_clean = date_word | downcase | replace: ',', '' -%}
+          {%- assign word_size = word_clean | size -%}
+          {%- assign word_is_month = false -%}
+          {%- if word_size > 4 -%}
+            {%- for month_name in month_names -%}
+              {%- if month_name == word_clean -%}
+                {%- assign word_is_month = true -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+          {%- unless forloop.first -%}{{ ' ' }}{%- endunless -%}
+          {%- if word_is_month -%}{{ date_word | slice: 0, 3 }}{%- else -%}{{ date_word }}{%- endif -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+
+      <li class="talk-item">
+        <div class="talk-date">{{ talk_date_display | strip }}</div>
+
+        <div class="talk-body">
+          <div class="talk-text">
             <div class="talk-title">{{ talk.title }}</div>
-            <!-- Venue and date (light grey, like the publications author list) -->
-            {% if talk.venue or talk.date %}
-              <div class="talk-meta">
-                {{ talk.venue }}{% if talk.venue and talk.date %}, {% endif %}{{ talk.date }}
-              </div>
-            {% endif %}
-
-            <!-- Links/Buttons -->
-            <div class="links">
-              {% if talk.watch %}
-                <a href="{{ talk.watch }}" class="btn btn-sm z-depth-0" role="button">Watch</a>
-              {% endif %}
-              {% if talk.slides %}
-                {% if talk.slides contains '://' %}
-                  <a href="{{ talk.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
-                {% else %}
-                  <a href="{{ talk.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
-                {% endif %}
-              {% endif %}
-              {% if talk.website %}
-                <a href="{{ talk.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
-              {% endif %}
-            </div>
+            {%- if talk.venue %}
+              <div class="talk-venue">{{ talk.venue }}</div>
+            {%- endif %}
           </div>
+
+          {%- if talk.watch or talk.slides or talk.website %}
+            <div class="talk-links">
+              {%- if talk.watch %}
+                <a href="{{ talk.watch }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Watch</a>
+              {%- endif %}
+              {%- if talk.slides %}
+                {%- if talk.slides contains '://' %}
+                  <a href="{{ talk.slides }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Slides</a>
+                {%- else %}
+                  <a href="{{ talk.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+                {%- endif %}
+              {%- endif %}
+              {%- if talk.website %}
+                <a href="{{ talk.website }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener">Website</a>
+              {%- endif %}
+            </div>
+          {%- endif %}
         </div>
       </li>
-    {% endfor %}
+    {%- endfor -%}
   </ol>
 </div>

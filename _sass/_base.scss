@@ -976,6 +976,191 @@ footer.sticky-bottom {
   }
 }
 
+// Invited talks
+//
+// A compact timeline: a date rail on the left, a hairline spine with a marker
+// per talk, then title / venue / links. Complements the publications list but
+// carries no thumbnail, so it stays a tight two-line row per talk.
+
+.talks {
+  margin-top: 1.25rem;
+
+  ol.talk-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .talk-item {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+  }
+
+  .talk-date {
+    flex: 0 0 5rem;
+    padding-top: 0.85rem;
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--global-text-color-light);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .talk-body {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.7rem 0 0.7rem 1.15rem;
+    border-left: 1px solid var(--global-divider-color);
+    transition: border-color 0.2s ease;
+
+    // timeline marker, aligned with the first line of the title
+    &::before {
+      content: '';
+      position: absolute;
+      left: -3.5px;
+      top: 1.15rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--global-divider-color);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+  }
+
+  .talk-item:first-child .talk-body {
+    padding-top: 0.35rem;
+
+    &::before {
+      top: 0.8rem;
+    }
+  }
+
+  .talk-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .talk-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    color: var(--global-text-color);
+    transition: color 0.2s ease;
+  }
+
+  .talk-venue {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 350;
+    line-height: 1.5;
+    color: var(--global-text-color-light);
+    margin-top: 0.1rem;
+  }
+
+  .talk-links {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 0.4rem;
+    align-self: center;
+
+    a.btn {
+      color: var(--global-text-color);
+      border: 1px solid var(--global-text-color);
+      background-color: transparent;
+      font-size: 0.72rem;
+      line-height: 1.2;
+      padding: 0.28rem 0.75rem;
+      margin: 0;
+      transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease,
+        transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        color: var(--global-theme-color);
+        border-color: var(--global-theme-color);
+        background-color: rgba(107, 103, 238, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(107, 103, 238, 0.18);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(107, 103, 238, 0.15);
+      }
+    }
+  }
+
+  .talk-item:hover {
+    .talk-date {
+      color: var(--global-theme-color);
+    }
+
+    .talk-title {
+      color: var(--global-theme-color);
+    }
+
+    .talk-body {
+      border-color: var(--global-theme-color);
+
+      &::before {
+        background-color: var(--global-theme-color);
+        transform: scale(1.35);
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+    .talk-item {
+      display: block;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--global-divider-color);
+    }
+
+    .talk-item:last-child {
+      border-bottom: none;
+    }
+
+    .talk-date {
+      padding-top: 0;
+      margin-bottom: 0.2rem;
+    }
+
+    .talk-body {
+      display: block;
+      padding: 0;
+      border-left: none;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .talk-item:first-child .talk-body {
+      padding-top: 0;
+    }
+
+    .talk-links {
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .talks .talk-body::before,
+  .talks .talk-links a.btn {
+    transition: none;
+  }
+}
+
 // Rouge Color Customization
 figure.highlight {
   margin: 0 0 1rem;
@@ -1459,4 +1644,146 @@ ninja-keys::part(ninja-input-wrapper) {
 ::highlight(search) {
   background-color: var(--global-theme-color);
   color: var(--global-text-color);
+}
+
+/*******************************************************************************
+ * Hover reveal links: a link whose companion label ("all papers", "read")
+ * unfurls on hover with a looping arrow. Used by the about page section
+ * headings and by publication titles in _layouts/bib.liquid.
+ ******************************************************************************/
+
+.hover-reveal {
+  // inline (not inline-flex) so the chip follows the last word of a
+  // title that wraps onto several lines
+  display: inline;
+  color: inherit;
+  text-decoration: none;
+  background-image: none;
+  background-size: 0 0;
+  border-bottom: none;
+  transition: color 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--global-theme-color);
+    text-decoration: none;
+    background-image: none;
+    background-size: 0 0;
+    border-bottom: none;
+  }
+
+  // the global `span { color: ... }` rule beats inheritance, so set it here
+  .hover-reveal-label {
+    color: inherit;
+    transition: color 0.25s ease;
+  }
+
+  &:hover .hover-reveal-label,
+  &:focus-visible .hover-reveal-label {
+    color: var(--global-theme-color);
+  }
+}
+
+// zero-width anchor: the chip is positioned against it and taken out of flow,
+// so it can never wrap onto a line of its own or reflow the title on hover
+.hover-more-anchor {
+  position: relative;
+  display: inline;
+}
+
+.hover-more {
+  position: absolute;
+  left: 0.55rem;
+  bottom: 0.12em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--global-theme-color);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  .more-text {
+    display: inline-block;
+    color: var(--global-theme-color);
+    transform: translateX(-6px);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .more-arrow {
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--global-theme-color);
+
+    svg {
+      width: 0.85em;
+      height: 0.85em;
+      stroke: var(--global-theme-color);
+    }
+  }
+}
+
+.hover-reveal:hover .hover-more,
+.hover-reveal:focus-visible .hover-more {
+  max-width: 12rem;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hover-reveal:hover .hover-more .more-text,
+.hover-reveal:focus-visible .hover-more .more-text {
+  transform: translateX(0);
+}
+
+// the arrow shoots off to the right and re-enters from the left
+.hover-reveal:hover .hover-more .more-arrow svg,
+.hover-reveal:focus-visible .hover-more .more-arrow svg {
+  animation: hover-more-arrow 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+@keyframes hover-more-arrow {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  45% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+
+  46% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// publication titles carry a slightly smaller chip than the section headings
+.publications .title .hover-more {
+  font-size: 0.7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-more,
+  .hover-more .more-text,
+  .hover-more .more-arrow svg {
+    transition: none;
+    animation: none;
+  }
 }
