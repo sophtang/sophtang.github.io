@@ -231,6 +231,50 @@ scholar:
   transform: translateX(5px);
 }
 
+/* ---------- dark theme ----------
+   the global card colour is a light purple, which leaves light text on a light
+   card, so the cards get their own deep purple surface here */
+html[data-theme="dark"] .ac-card {
+  background: #232042;
+  border-color: rgba(151, 147, 248, 0.22);
+}
+
+html[data-theme="dark"] .ac-card::before {
+  background: radial-gradient(
+    420px circle at var(--ac-x, 50%) var(--ac-y, 50%),
+    rgba(151, 147, 248, 0.22),
+    rgba(151, 147, 248, 0) 65%
+  );
+}
+
+html[data-theme="dark"] .ac-card:hover,
+html[data-theme="dark"] .ac-card:focus-within {
+  border-color: var(--global-theme-color);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] .ac-media {
+  border-right-color: rgba(151, 147, 248, 0.18);
+  border-bottom-color: rgba(151, 147, 248, 0.18);
+}
+
+html[data-theme="dark"] .post article .ac-title a.ac-stretch {
+  color: #ecebff;
+}
+
+html[data-theme="dark"] .ac-meta {
+  color: #a39fd0;
+}
+
+html[data-theme="dark"] .ac-desc {
+  color: #d6d4ee;
+  opacity: 0.9;
+}
+
+html[data-theme="dark"] .ac-intro {
+  color: #a39fd0;
+}
+
 /* ---------- responsive / motion ---------- */
 @media (max-width: 700px) {
   .ac-card {

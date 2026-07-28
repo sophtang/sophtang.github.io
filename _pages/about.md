@@ -21,11 +21,11 @@ invited_talks: true # includes the invited talks listed in _data/talks.yml
 technical_articles: false
 social: true # includes social icons at the bottom of the page
 ---
-Hi! I am a undergraduate student at the University of Pennsylvania conducting research in <em>generative modeling for scientific discovery</em>. Aside from research, I study **computer science and statistics** in the [Jerome Fisher Program in Management & Technology](https://fisher.wharton.upenn.edu/).
+Hi! I am a final-year undergraduate student at the University of Pennsylvania conducting research in <em>generative modeling for scientific discovery</em>. Aside from research, I study **computer science and statistics** in the [Jerome Fisher Program in Management & Technology](https://fisher.wharton.upenn.edu/).
 
 Currently, I’m part of the [Chatterjee Lab](https://www.chatterjeelab.com/), developing **theoretical ML frameworks for biological design**, and this summer, I'm a visiting researcher at the [Kempner Institute at Harvard University](https://kempnerinstitute.harvard.edu/). 
 
-My research ranges from developing theoretical [Schrödinger bridge frameworks](https://arxiv.org/abs/2511.07406) for generative modelling of [branching](https://arxiv.org/abs/2506.09007) and [interacting particle systems](https://arxiv.org/abs/2511.07406) to [multi-objective RL](https://arxiv.org/abs/2509.25171) and [guidance](https://arxiv.org/abs/2412.17780) techniques for discrete diffusion - but I’m always exploring new theoretical ideas and thinking about interesting problems to apply them to! 
+My research ranges from developing theoretical [Schrödinger bridge frameworks](https://arxiv.org/abs/2511.07406) for generative modelling of [branching](https://arxiv.org/abs/2506.09007) and [interacting particle systems](https://arxiv.org/abs/2511.07406) to [reward alignment](https://arxiv.org/abs/2509.25171) and [guidance](https://arxiv.org/abs/2412.17780) techniques for discrete generative models - but I’m always exploring new theoretical ideas and thinking about interesting problems to apply them to! 
 
 I also write long-form tutorial papers on foundational topics in machine learning and shorter technical articles on my Substack, [<em>Alchemy Bio</em>](https://alchemybio.substack.com/). I recently released [Foundations of Schrödinger Bridges for Generative Modeling](https://arxiv.org/abs/2603.18992) (220 pages) and [A Complete Guide to Spherical Equivariant Graph Transformers](https://arxiv.org/abs/2512.13927) (99 pages), which aim to break down complex theoretical concepts for a broad audience.
 

@@ -293,6 +293,67 @@ published: true
   text-decoration: none;
 }
 
+/* ---------- dark theme ----------
+   the global card colour is a light purple, which leaves light text on a light
+   card, so the cards get their own deep purple surface here */
+html[data-theme="dark"] .pp-card {
+  background: #232042;
+  border-color: rgba(151, 147, 248, 0.22);
+}
+
+html[data-theme="dark"] .pp-card--featured {
+  border-color: rgba(151, 147, 248, 0.5);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] .pp-card::before {
+  background: radial-gradient(
+    340px circle at var(--pp-x, 50%) var(--pp-y, 50%),
+    rgba(151, 147, 248, 0.22),
+    rgba(151, 147, 248, 0) 65%
+  );
+}
+
+html[data-theme="dark"] .pp-card:hover,
+html[data-theme="dark"] .pp-card:focus-within {
+  border-color: var(--global-theme-color);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] .pp-media {
+  border-bottom-color: rgba(151, 147, 248, 0.18);
+}
+
+html[data-theme="dark"] .post article .pp-title a.pp-stretch {
+  color: #ecebff;
+}
+
+html[data-theme="dark"] .pp-meta {
+  color: #a39fd0;
+}
+
+html[data-theme="dark"] .pp-desc {
+  color: #d6d4ee;
+  opacity: 0.9;
+}
+
+html[data-theme="dark"] .pp-badge {
+  color: #ecebff;
+  background: rgba(35, 32, 66, 0.85);
+  border-color: rgba(151, 147, 248, 0.45);
+}
+
+html[data-theme="dark"] .post article a.pp-paper {
+  color: #b6b2e0;
+  border-color: rgba(151, 147, 248, 0.35);
+}
+
+html[data-theme="dark"] .post article a.pp-paper:hover {
+  color: #ecebff;
+  border-color: var(--global-theme-color);
+  background-color: rgba(151, 147, 248, 0.16);
+}
+
 /* ---------- responsive / motion ---------- */
 @media (max-width: 768px) {
   .pp-grid {
