@@ -18,10 +18,17 @@ ninja.data = [{
           },
         },{id: "nav-technical-articles",
           title: "Technical Articles",
-          description: "",
+          description: "Long-form breakdowns of the papers and ideas I&#39;m thinking about.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/articles/";
+          },
+        },{id: "nav-project-pages",
+          title: "Project Pages",
+          description: "Explore selected papers via their project page! :D",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
           },
         },{id: "news-peptune-de-novo-generation-of-therapeutic-peptides-with-multi-objective-guided-discrete-diffusion-accepted-at-icml-2025-come-by-us-at-poster-session-4-to-chat-free-peptune-stickers",
           title: 'PepTune: De Novo Generation of Therapeutic Peptides with Multi-Objective-Guided Discrete Diffusion accepted at...',
