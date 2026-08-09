@@ -2,24 +2,24 @@
 # `website` field in _bibliography/papers.bib. Order here = order on /projects/.
 - title: Expanding Flow Maps
   abbr: EFM
-  meta: 2026 · Few-step generation with learned output size
+  meta: Preprint 2026
   description: Flows between distributions of <em>increasing</em> dimensionality, factored into an expand operator that augments the state with new coordinates or tokens and a transport map that pushes it forward, giving few-step models for variable-size graphs and variable-length sequences.
   image: efm-fast.mp4
   url: https://sophtang.github.io/expanding-flow-maps/
   paper: https://arxiv.org/abs/2607.21585
   featured: true
 
-- title: A2D2
+- title: Adaptive Any-length Discrete Diffusion
   abbr: A2D2
-  meta: 2026 · Reward-guided fine-tuning of any-length discrete diffusion
+  meta: Preprint 2026
   description: Reward-guided fine-tuning that jointly optimizes the insertion and unmasking policies of any-length discrete diffusion together with a quality-based inference schedule, with provable convergence to the reward-tilted distribution and no target samples required.
   image: a2d2.mp4
   url: https://sophtang.github.io/adaptive-anylength-discrete-diffusion/
   paper: https://arxiv.org/abs/2606.13565
 
-- title: mRNAutilus
+- title: Multi-objective mRNA Design
   abbr: mRNAutilus
-  meta: 2026 · Multi-objective mRNA design
+  meta: Preprint 2026
   description: Masked discrete diffusion over full mRNA transcripts, steered by Monte Carlo Tree Guidance and lightweight property predictors, so coding regions and UTRs are designed in one pass for half-life, translation efficiency, and protein abundance.
   image: mrnautilus.mp4
   url: https://mrna-multi-objective-design.github.io/
@@ -27,7 +27,7 @@
 
 - title: Foundations of Schrödinger Bridges
   abbr: SB Book
-  meta: 2026 · 220-page tutorial paper
+  meta: 220-page tutorial paper 2026
   description: A guide to the Schrödinger bridge problem built from first principles through optimal transport, stochastic control, and path-space optimization, showing how one dynamic formulation unifies diffusion, score-based, and flow matching models.
   image: foundations-sbm.png
   url: https://sophtang.github.io/foundations-of-sbm/
@@ -36,7 +36,7 @@
 
 - title: Branched Schrödinger Bridge Matching
   abbr: BranchSBM
-  meta: ICLR 2026 · Branching stochastic dynamics
+  meta: ICLR 2026
   description: Schrödinger bridges that <em>branch</em>, parameterizing multiple time-dependent velocity fields and growth processes so a single origin distribution can diverge into several terminal ones, as in cell fate bifurcations and diverging responses to perturbation.
   image: branchsbm.png
   url: https://sophtang.github.io/branch-sbm/
@@ -44,7 +44,7 @@
 
 - title: PeptiVerse
   abbr: PeptiVerse
-  meta: Nature Communications 2026 · Interactive demo
+  meta: Nature Communications 2026
   description: A unified platform for therapeutic peptide property prediction, pairing experimentally validated datasets and similarity-aware splits with models ranging from classical classifiers to cross-attention transformers, running live as a Hugging Face Space.
   image: peptiverse-cover.png
   url: https://huggingface.co/spaces/ChatterjeeLab/PeptiVerse
