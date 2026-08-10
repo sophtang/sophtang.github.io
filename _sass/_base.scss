@@ -481,6 +481,26 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+// Social links drawn as inline SVG (e.g. alphaXiv) rather than an icon font
+
+a.social-icon-svg {
+  display: inline-block;
+  color: var(--global-text-color);
+
+  &:hover {
+    text-decoration: none;
+    color: var(--global-theme-color);
+  }
+}
+
+.navbar-brand.social a.social-icon-svg svg,
+.social .contact-icons a.social-icon-svg svg {
+  width: 1em;
+  height: 1em;
+  margin-bottom: 0;
+  vertical-align: -0.125em;
+}
+
 .wechat-modal {
   display: none;
   position: fixed;

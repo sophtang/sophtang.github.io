@@ -140,4 +140,10 @@ If any of these topics sparks your interest, I would love to connect!
 .profile .profile-social a i::before {
   color: inherit;
 }
+.profile .profile-social a.social-icon-svg svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin: 0;
+  display: block;
+}
 </style>
