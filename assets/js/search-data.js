@@ -54,6 +54,9 @@ ninja.data = [{
           section: "News",},{id: "news-expanding-flow-maps-is-out-we-develop-a-generalizable-framework-for-learning-generative-flows-with-dynamically-increasing-dimensionality",
           title: 'Expanding Flow Maps 🌊 is out! We develop a generalizable framework for learning...',
           description: "",
+          section: "News",},{id: "news-i-am-co-organizing-the-beyond-next-token-prediction-bento-workshop-at-neurips-2026-in-sydney-submit-your-newest-work-in-generative-modeling-via-openreview-by-august-29th",
+          title: 'I am co-organizing the Beyond Next Token Prediction (BeNTo) 🍱 workshop at NeurIPS 2026...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
