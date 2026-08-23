@@ -72,10 +72,27 @@
       {% assign paper_link = entry.url %}
     {% endif %}
 
+    <!-- Title link: prefer the alphaXiv PDF view when an arXiv id is available -->
+    {% assign title_link = paper_link %}
+    {% assign arxiv_id = null %}
+    {% if entry.arxiv %}
+      {% assign arxiv_id = entry.arxiv %}
+    {% elsif entry.url contains 'arxiv.org/abs/' %}
+      {% assign arxiv_id = entry.url | split: '/abs/' | last | split: '?' | first %}
+    {% else %}
+      {% assign doi_lower = entry.doi | downcase %}
+      {% if doi_lower contains '10.48550/arxiv.' %}
+        {% assign arxiv_id = entry.doi | split: '10.48550/' | last | remove_first: 'arXiv.' | remove_first: 'ARXIV.' | remove_first: 'arxiv.' %}
+      {% endif %}
+    {% endif %}
+    {% if arxiv_id %}
+      {% assign title_link = arxiv_id | prepend: 'https://alphaxiv.org/pdf/' %}
+    {% endif %}
+
     <!-- Title -->
     <div class="title">
-      {% if paper_link %}
-        <a class="hover-reveal" href="{{ paper_link }}" target="_blank" rel="noopener">
+      {% if title_link %}
+        <a class="hover-reveal" href="{{ title_link }}" target="_blank" rel="noopener">
           <span class="hover-reveal-label">{{ entry.title }}</span><span class="hover-more-anchor" aria-hidden="true"><span class="hover-more">
             <span class="more-text">read</span>
             <span class="more-arrow">
