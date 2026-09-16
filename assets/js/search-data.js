@@ -57,6 +57,9 @@ ninja.data = [{
           section: "News",},{id: "news-i-am-co-organizing-the-beyond-next-token-prediction-bento-workshop-at-neurips-2026-in-sydney-submit-your-newest-work-in-generative-modeling-via-openreview-by-august-29th",
           title: 'I am co-organizing the Beyond Next Token Prediction (BeNTo) 🍱 workshop at NeurIPS 2026...',
           description: "",
+          section: "News",},{id: "news-discrete-beckmann-transport-models-is-out-we-introduce-a-framework-for-discrete-generation-that-learns-an-autonomous-transport-map-for-one-and-few-step-language-modeling-and-reasoning-also-be-sure-to-check-out-beckmann-transport-models",
+          title: 'Discrete Beckmann Transport Models 🛸 is out! We introduce a framework for discrete...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
