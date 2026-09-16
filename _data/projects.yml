@@ -1,5 +1,14 @@
 # Project pages: interactive companion sites for the papers that have a
 # `website` field in _bibliography/papers.bib. Order here = order on /projects/.
+- title: Discrete Beckmann Transport Models
+  abbr: DBTM
+  meta: Preprint 2026
+  description: A framework for discrete generation that learns an <em>autonomous</em> transport map that enables sequence generation in one or a few steps for language modeling and reasoning.
+  image: discrete-btm.png
+  url: https://sophtang.github.io/discrete-beckmann-transport/
+  paper: https://arxiv.org/abs/2609.15903
+  featured: true
+
 - title: Expanding Flow Maps
   abbr: EFM
   meta: Preprint 2026

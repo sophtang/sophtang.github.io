@@ -14,3 +14,6 @@ vendor
 # local image backups (not for commit)
 .image-backup/
 to_add.md
+# art page and drawings (not for commit)
+_pages/art.html
+assets/img/draw/
