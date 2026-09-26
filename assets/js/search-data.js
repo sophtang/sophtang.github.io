@@ -60,6 +60,9 @@ ninja.data = [{
           section: "News",},{id: "news-discrete-beckmann-transport-models-is-out-we-introduce-a-framework-for-discrete-generation-that-learns-an-autonomous-transport-map-for-one-and-few-step-language-modeling-and-reasoning-also-be-sure-to-check-out-beckmann-transport-models",
           title: 'Discrete Beckmann Transport Models 🛸 is out! We introduce a framework for discrete...',
           description: "",
+          section: "News",},{id: "news-four-papers-accepted-at-neurips-2026-main-expanding-flow-maps-entangledsbm-️-actflow-and-beckmann-transport-models-see-you-in-sydney",
+          title: 'Four papers accepted at NeurIPS 2026 main: Expanding Flow Maps 🌊, EntangledSBM ⚛️,...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
