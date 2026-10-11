@@ -1,0 +1,15 @@
+---
+permalink: /sitemap-projects.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for project in site.data.projects %}
+  {%- assign prefix = site.url | append: "/" %}
+  {%- if project.url and project.url contains prefix %}
+  <url>
+    <loc>{{ project.url }}</loc>
+  </url>
+  {%- endif %}
+{%- endfor %}
+</urlset>

@@ -11,7 +11,7 @@
 
 - title: Expanding Flow Maps
   abbr: EFM
-  meta: Preprint 2026
+  meta: NeurIPS 2026
   description: Flows between distributions of <em>increasing</em> dimensionality, factored into an expand operator that augments the state with new coordinates or tokens and a transport map that pushes it forward, giving few-step models for variable-size graphs and variable-length sequences.
   image: efm-fast.mp4
   url: https://sophtang.github.io/expanding-flow-maps/

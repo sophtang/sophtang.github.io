@@ -72,8 +72,7 @@ published: true
   transform: translateY(18px);
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease,
+    border-color 0.25s ease,
     opacity 0.5s ease;
 }
 
@@ -82,7 +81,7 @@ published: true
   transform: translateY(0);
 }
 
-/* cursor-following glow */
+/* flat hover tint, matching the publication rows */
 .pp-card::before {
   content: "";
   position: absolute;
@@ -90,19 +89,13 @@ published: true
   z-index: 0;
   opacity: 0;
   pointer-events: none;
-  background: radial-gradient(
-    340px circle at var(--pp-x, 50%) var(--pp-y, 50%),
-    rgba(107, 103, 238, 0.16),
-    rgba(107, 103, 238, 0) 65%
-  );
-  transition: opacity 0.35s ease;
+  background: rgba(107, 103, 238, 0.06);
+  transition: opacity 0.25s ease;
 }
 
 .pp-card:hover,
 .pp-card:focus-within {
-  transform: translateY(-6px);
   border-color: var(--pp-accent);
-  box-shadow: 0 18px 38px rgba(107, 103, 238, 0.18);
 }
 
 .pp-card:hover::before,
@@ -112,7 +105,6 @@ published: true
 
 .pp-card--featured {
   border-color: rgba(107, 103, 238, 0.55);
-  box-shadow: 0 6px 18px rgba(107, 103, 238, 0.1);
 }
 
 /* ---------- media ---------- */
@@ -145,7 +137,7 @@ published: true
   top: 0.7rem;
   left: 0.7rem;
   z-index: 2;
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -178,7 +170,7 @@ published: true
 }
 
 .pp-title {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Newsreader', Georgia, serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.2;
@@ -208,25 +200,24 @@ published: true
 }
 
 .pp-meta {
-  font-family: 'DM Sans', -apple-system, sans-serif;
-  font-style: italic;
-  font-size: 0.82rem;
+  font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  font-style: normal;
+  font-size: 0.74rem;
   line-height: 1.45;
   color: var(--global-text-color-light);
   margin: 0 0 0.7rem;
 }
 
 .pp-desc {
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.92rem;
   line-height: 1.6;
   color: var(--global-text-color);
-  opacity: 0.85;
   margin: 0 0 1.1rem;
 }
 
 .pp-desc em {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Newsreader', Georgia, serif;
   font-style: italic;
   font-size: 1.12em;
   font-weight: 600;
@@ -245,11 +236,10 @@ published: true
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.86rem;
   font-weight: 600;
   color: var(--global-theme-color);
-  opacity: 0.75;
   transition: opacity 0.25s ease;
 }
 
@@ -272,7 +262,7 @@ published: true
 .post article a.pp-paper {
   position: relative;
   z-index: 2;
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -298,30 +288,24 @@ published: true
    card, so the cards get their own deep purple surface here */
 html[data-theme="dark"] .pp-card {
   background: #232042;
-  border-color: rgba(151, 147, 248, 0.22);
+  border-color: rgba(151, 147, 248, 0.12);
 }
 
 html[data-theme="dark"] .pp-card--featured {
-  border-color: rgba(151, 147, 248, 0.5);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  border-color: rgba(151, 147, 248, 0.3);
 }
 
 html[data-theme="dark"] .pp-card::before {
-  background: radial-gradient(
-    340px circle at var(--pp-x, 50%) var(--pp-y, 50%),
-    rgba(151, 147, 248, 0.22),
-    rgba(151, 147, 248, 0) 65%
-  );
+  background: rgba(151, 147, 248, 0.08);
 }
 
 html[data-theme="dark"] .pp-card:hover,
 html[data-theme="dark"] .pp-card:focus-within {
   border-color: var(--global-theme-color);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5);
 }
 
 html[data-theme="dark"] .pp-media {
-  border-bottom-color: rgba(151, 147, 248, 0.18);
+  border-bottom-color: rgba(151, 147, 248, 0.1);
 }
 
 html[data-theme="dark"] .post article .pp-title a.pp-stretch {
@@ -334,7 +318,6 @@ html[data-theme="dark"] .pp-meta {
 
 html[data-theme="dark"] .pp-desc {
   color: #d6d4ee;
-  opacity: 0.9;
 }
 
 html[data-theme="dark"] .pp-badge {
@@ -417,13 +400,6 @@ html[data-theme="dark"] .post article a.pp-paper:hover {
     }
 
     if (coarsePointer) return;
-
-    // glow follows the cursor
-    card.addEventListener('pointermove', (e) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--pp-x', `${e.clientX - rect.left}px`);
-      card.style.setProperty('--pp-y', `${e.clientY - rect.top}px`);
-    });
 
     // hovering restarts the preview so you always catch it from the top
     if (video && !reduceMotion) {

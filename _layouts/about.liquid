@@ -21,9 +21,9 @@ news: true
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle image-spacing' %}
+            {% assign profile_image_class = 'img-fluid rounded-circle image-spacing' %}
           {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
+            {% assign profile_image_class = 'img-fluid
       rounded image-spacing' %}
           {% endif %}
           {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
@@ -45,14 +45,14 @@ news: true
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
       <hr class="section-divider">
-      <h2>Updates</h2>
+      <h2 class="section-heading">Updates</h2>
       {% include news.liquid limit=true %}
     {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <hr class="section-divider">
-      <h2 class="section-heading">
+      <h2 class="section-heading" id="selected-publications">
         <a class="section-link hover-reveal" href="{{ '/publications/' | relative_url }}" aria-label="Selected Publications: see all papers">
           <span class="section-link-label hover-reveal-label">Selected Publications</span><span class="hover-more-anchor" aria-hidden="true"><span class="hover-more">
             <span class="more-text">all papers</span>
@@ -65,6 +65,10 @@ news: true
           </span></span>
         </a>
       </h2>
+      <span class="topic-filter" id="topic-filter" hidden>
+        <span class="topic-filter-name"></span>
+        <button type="button" class="topic-filter-clear" aria-label="Clear research area filter">&times;</button>
+      </span>
       {% include selected_papers.liquid %}
     {% endif %}
 

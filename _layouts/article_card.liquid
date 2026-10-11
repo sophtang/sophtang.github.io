@@ -7,7 +7,10 @@
 {% endcomment %}
 
 {% assign article_url = entry.blog | default: entry.url %}
-{% if article_url contains 'arxiv.org' %}
+{% if entry.source %}
+  {% assign source = entry.source %}
+  {% assign cta = 'Read the blog' %}
+{% elsif article_url contains 'arxiv.org' %}
   {% assign source = 'arXiv' %}
   {% assign cta = 'Read on arXiv' %}
 {% else %}
@@ -33,12 +36,13 @@
   {% endif %}
 
   <div class="ac-body">
+    <p class="ac-meta">
+      {%- if entry.month %}{{ entry.month | capitalize }} {% endif %}{{ entry.year }} · {{ source }}
+      {%- if entry.readtime %} · {{ entry.readtime }} min read{% endif -%}
+    </p>
     <h3 class="ac-title">
       <a class="ac-stretch" href="{{ article_url }}" target="_blank" rel="noopener">{{ entry.title }}</a>
     </h3>
-    <p class="ac-meta">
-      {%- if entry.month %}{{ entry.month | capitalize }} {% endif %}{{ entry.year }} · {{ source }}
-    </p>
     {% if entry.note %}<p class="ac-desc">{{ entry.note | strip }}</p>{% endif %}
     <span class="ac-cta">
       {{ cta }}

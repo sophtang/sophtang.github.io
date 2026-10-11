@@ -1,0 +1,25 @@
+# Research-area chips on the about page (_pages/about.md).
+# Each `id` matches a word in the `topics = {...}` field of entries in
+# _bibliography/papers.bib. Papers tagged with a topic but not marked
+# `selected` only appear on the about page while that chip is active.
+- group: Methods
+  areas:
+    - id: generative
+      label: New generative models
+    - id: discrete
+      label: Discrete diffusion & flow
+    - id: schrodinger
+      label: Schrödinger bridges
+    - id: alignment
+      label: Reward alignment & guidance
+
+- group: Applications
+  areas:
+    - id: language
+      label: Language modeling & reasoning
+    - id: biology
+      label: Biological design
+    - id: dynamics
+      label: Molecular dynamics
+    - id: cells
+      label: Cell state modeling

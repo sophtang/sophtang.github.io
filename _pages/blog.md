@@ -44,7 +44,7 @@ scholar:
 
 <style>
 .ac-intro {
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.9rem;
   color: var(--global-text-color-light);
   margin: -0.5rem 0 0;
@@ -80,8 +80,7 @@ scholar:
   transform: translateY(16px);
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease,
+    border-color 0.25s ease,
     opacity 0.5s ease;
 }
 
@@ -90,7 +89,7 @@ scholar:
   transform: translateY(0);
 }
 
-/* cursor-following glow */
+/* flat hover tint, matching the publication rows */
 .ac-card::before {
   content: "";
   position: absolute;
@@ -98,19 +97,13 @@ scholar:
   z-index: 0;
   opacity: 0;
   pointer-events: none;
-  background: radial-gradient(
-    420px circle at var(--ac-x, 50%) var(--ac-y, 50%),
-    rgba(107, 103, 238, 0.16),
-    rgba(107, 103, 238, 0) 65%
-  );
-  transition: opacity 0.35s ease;
+  background: rgba(107, 103, 238, 0.06);
+  transition: opacity 0.25s ease;
 }
 
 .ac-card:hover,
 .ac-card:focus-within {
-  transform: translateY(-4px);
   border-color: var(--global-theme-color);
-  box-shadow: 0 16px 34px rgba(107, 103, 238, 0.18);
 }
 
 .ac-card:hover::before,
@@ -121,18 +114,24 @@ scholar:
 /* ---------- media ---------- */
 .ac-media {
   position: relative;
-  flex: 0 0 15rem;
+  flex: 0 0 40%;
   align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 9.5rem;
+  padding: 1rem;
   overflow: hidden;
-  background: #fff;
+  background: #f1f1ff;
   border-right: 1px solid var(--global-divider-color);
 }
 
+/* the whole preview is shown, letterboxed on the purple panel */
 .ac-media-el {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
   display: block;
   transform: scale(1);
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
@@ -155,7 +154,7 @@ scholar:
 }
 
 .ac-title {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Newsreader', Georgia, serif;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.2;
@@ -185,20 +184,19 @@ scholar:
 }
 
 .ac-meta {
-  font-family: 'DM Sans', -apple-system, sans-serif;
-  font-style: italic;
-  font-size: 0.8rem;
+  font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  font-style: normal;
+  font-size: 0.74rem;
   line-height: 1.45;
   color: var(--global-text-color-light);
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.35rem;
 }
 
 .ac-desc {
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.9rem;
   line-height: 1.6;
   color: var(--global-text-color);
-  opacity: 0.85;
   margin: 0 0 0.9rem;
 }
 
@@ -207,11 +205,10 @@ scholar:
   align-items: center;
   gap: 0.35rem;
   margin-top: auto;
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.84rem;
   font-weight: 600;
   color: var(--global-theme-color);
-  opacity: 0.7;
   transition: opacity 0.25s ease;
 }
 
@@ -236,26 +233,21 @@ scholar:
    card, so the cards get their own deep purple surface here */
 html[data-theme="dark"] .ac-card {
   background: #232042;
-  border-color: rgba(151, 147, 248, 0.22);
+  border-color: rgba(151, 147, 248, 0.12);
 }
 
 html[data-theme="dark"] .ac-card::before {
-  background: radial-gradient(
-    420px circle at var(--ac-x, 50%) var(--ac-y, 50%),
-    rgba(151, 147, 248, 0.22),
-    rgba(151, 147, 248, 0) 65%
-  );
+  background: rgba(151, 147, 248, 0.08);
 }
 
 html[data-theme="dark"] .ac-card:hover,
 html[data-theme="dark"] .ac-card:focus-within {
   border-color: var(--global-theme-color);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.5);
 }
 
 html[data-theme="dark"] .ac-media {
-  border-right-color: rgba(151, 147, 248, 0.18);
-  border-bottom-color: rgba(151, 147, 248, 0.18);
+  border-right-color: rgba(151, 147, 248, 0.1);
+  border-bottom-color: rgba(151, 147, 248, 0.1);
 }
 
 html[data-theme="dark"] .post article .ac-title a.ac-stretch {
@@ -268,7 +260,6 @@ html[data-theme="dark"] .ac-meta {
 
 html[data-theme="dark"] .ac-desc {
   color: #d6d4ee;
-  opacity: 0.9;
 }
 
 html[data-theme="dark"] .ac-intro {
@@ -282,7 +273,6 @@ html[data-theme="dark"] .ac-intro {
   }
   .ac-media {
     flex: 0 0 auto;
-    aspect-ratio: 16 / 7;
     min-height: 0;
     border-right: none;
     border-bottom: 1px solid var(--global-divider-color);
@@ -310,7 +300,6 @@ html[data-theme="dark"] .ac-intro {
   if (!cards.length) return;
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const coarsePointer = window.matchMedia('(hover: none)').matches;
 
   // staggered reveal on scroll
   if (reduceMotion || !('IntersectionObserver' in window)) {
@@ -333,15 +322,5 @@ html[data-theme="dark"] .ac-intro {
     );
     cards.forEach((c) => observer.observe(c));
   }
-
-  if (coarsePointer) return;
-
-  cards.forEach((card) => {
-    card.addEventListener('pointermove', (e) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--ac-x', `${e.clientX - rect.left}px`);
-      card.style.setProperty('--ac-y', `${e.clientY - rect.top}px`);
-    });
-  });
 })();
 </script>

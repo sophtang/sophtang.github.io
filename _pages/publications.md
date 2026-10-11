@@ -40,14 +40,14 @@ scholar:
 
 <style>
 .pub-intro {
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.9rem;
   color: var(--global-text-color-light);
   margin: -0.5rem 0 0.4rem;
 }
 
 .pub-note {
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.85rem;
   color: var(--global-text-color-light);
   margin: 0;

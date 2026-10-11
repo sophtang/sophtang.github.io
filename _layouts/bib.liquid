@@ -1,6 +1,17 @@
 ---
 ---
-<div class="row">
+<div
+  class="row"
+  {% if entry.topics %}
+    data-topics="{{ entry.topics }}"
+  {% endif %}
+  {% if entry.shortname %}
+    data-shortname="{{ entry.shortname }}"
+  {% endif %}
+  {% if entry.selected == 'true' %}
+    data-selected="true"
+  {% endif %}
+>
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}
@@ -26,12 +37,13 @@
         {% endif %}
       {% endif %}
       {% if entry.preview %}
+        <div class="preview-frame">
         {% if entry.preview contains '://' %}
-          <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
+          <img class="preview rounded" src="{{ entry.preview }}">
         {% elsif entry.preview contains '.mp4' or entry.preview contains '.webm' %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
           <video
-            class="preview z-depth-1 rounded zoomable-video"
+            class="preview rounded zoomable-video"
             style="width: 100%; height: auto;"
             autoplay
             loop
@@ -47,11 +59,12 @@
             loading="eager"
             path=entry_path
             sizes = "200px"
-            class="preview z-depth-1 rounded"
+            class="preview rounded"
             zoomable=true
             alt=entry.preview
           %}
         {% endif %}
+        </div>
       {% endif %}
     </div>
   {% endif %}
