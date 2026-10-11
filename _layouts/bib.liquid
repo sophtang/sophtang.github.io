@@ -376,10 +376,58 @@
 
     {% if entry.bibtex_show %}
       <!-- Hidden bibtex block -->
+      <!-- A compact citation: title, author, venue, year, url -->
+      {%- capture bib_authors -%}
+        {%- for author in entry.author_array -%}
+          {%- unless forloop.first %} and {% endunless -%}
+          {%- if author.first and author.first != '' -%}{{ author.first }} {% endif -%}
+          {{- author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -}}
+        {%- endfor -%}
+      {%- endcapture -%}
+      {%- assign bib_venue_field = 'journal' -%}
+      {%- assign bib_venue = entry.journal -%}
+      {%- if entry.booktitle -%}
+        {%- assign bib_venue_field = 'booktitle' -%}
+        {%- assign bib_venue = entry.booktitle -%}
+      {%- endif -%}
+      {%- comment -%} key: first author's last name + year + first word of the title {%- endcomment -%}
+      {%- assign bib_first_author = entry.author_array | first -%}
+      {%- assign bib_key_name = bib_first_author.last | remove_accents | downcase | regex_replace: '[^a-z0-9]', '' -%}
+      {%- assign bib_title_word = entry.title | split: ' ' | first | remove_accents | downcase -%}
+      {%- comment -%} hyphenated words keep their first part (High-Throughput -> high), unless it has digits (TR2-D2) {%- endcomment -%}
+      {%- assign bib_title_head = bib_title_word | split: '-' | first -%}
+      {%- assign bib_head_rest = bib_title_head | regex_replace: '[a-z]', '' -%}
+      {%- if bib_title_word contains '-' and bib_head_rest == '' -%}
+        {%- assign bib_title_word = bib_title_head -%}
+      {%- endif -%}
+      {%- assign bib_key_word = bib_title_word | regex_replace: '[^a-z0-9]', '' -%}
+      {%- assign bib_key = bib_key_name | append: entry.year | append: bib_key_word -%}
+      {%- assign bib_url = entry.url -%}
+      {%- if bib_url == nil or bib_url == '' -%}
+        {%- if entry.doi contains '://' -%}
+          {%- assign bib_url = entry.doi -%}
+        {%- elsif entry.doi -%}
+          {%- assign bib_url = entry.doi | prepend: 'https://doi.org/' -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- if bib_url contains 'arxiv.org' -%}
+        {%- comment -%} cite the paper, not a specific arXiv version {%- endcomment -%}
+        {%- assign bib_url = bib_url | regex_replace: 'v[0-9]+$', '' -%}
+      {%- endif -%}
       <div class="bibtex hidden">
         {% highlight bibtex %}
-        {{- entry.bibtex | hideCustomBibtex -}}
-        {% endhighlight %}
+@{{ entry.type }}{% raw %}{{% endraw %}{{ bib_key }},
+  title={% raw %}{{% endraw %}{{ entry.title }}{% raw %}}{% endraw %},
+  author={% raw %}{{% endraw %}{{ bib_authors }}{% raw %}}{% endraw %},
+{%- if bib_venue %}
+  {{ bib_venue_field }}={% raw %}{{% endraw %}{{ bib_venue }}{% raw %}}{% endraw %},
+{%- endif %}
+  year={% raw %}{{% endraw %}{{ entry.year }}{% raw %}}{% endraw %}
+{%- if bib_url %},
+  url={% raw %}{{% endraw %}{{ bib_url }}{% raw %}}{% endraw %}
+{%- endif %}
+}
+        {%- endhighlight %}
       </div>
     {% endif %}
 

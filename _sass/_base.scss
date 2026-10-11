@@ -83,14 +83,18 @@ a.btn,
 .nav-link,
 .social a,
 .contact-icons a,
+.profile-social a,
+.connect-pop a,
 footer a {
   background-image: none;
   background-size: 0 0;
+  text-decoration: none;
   transition: none;
 
   &:hover {
     background-image: none;
     background-size: 0 0;
+    text-decoration: none;
   }
 }
 
