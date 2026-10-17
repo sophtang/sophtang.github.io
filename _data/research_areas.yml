@@ -12,14 +12,16 @@
       label: Schrödinger bridges
     - id: alignment
       label: Reward alignment & guidance
+    - id: discovery
+      label: Generative discovery
 
 - group: Applications
   areas:
     - id: language
       label: Language modeling & reasoning
-    - id: biology
-      label: Biological design
     - id: dynamics
       label: Molecular dynamics
+    - id: biology
+      label: Biomolecular design & discovery
     - id: cells
       label: Cell state modeling
