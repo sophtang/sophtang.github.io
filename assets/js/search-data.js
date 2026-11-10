@@ -63,6 +63,9 @@ ninja.data = [{
           section: "News",},{id: "news-four-papers-accepted-at-neurips-2026-main-expanding-flow-maps-entangledsbm-️-actflow-and-beckmann-transport-models-see-you-in-sydney",
           title: 'Four papers accepted at NeurIPS 2026 main: Expanding Flow Maps 🌊, EntangledSBM ⚛️,...',
           description: "",
+          section: "News",},{id: "news-our-survey-on-continuous-diffusion-and-flow-language-models-is-out-along-with-our-interactive-map-️-and-github-paper-collection",
+          title: 'Our Survey on Continuous Diffusion and Flow Language Models is out, along with...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
