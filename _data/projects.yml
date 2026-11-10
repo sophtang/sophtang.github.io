@@ -1,5 +1,13 @@
 # Project pages: interactive companion sites for the papers that have a
 # `website` field in _bibliography/papers.bib. Order here = order on /projects/.
+- title: Continuous Diffusion and Flow Language Models
+  abbr: Survey
+  meta: Survey 2026
+  description: A survey of continuous diffusion and flow language models, covering how they represent text, learn generative dynamics, generate in few steps, and scale, with an <em>interactive</em> map of the papers in the field.
+  image: continuous-lm-map.gif
+  url: https://continuous-lm.github.io/
+  featured: true
+
 - title: Discrete Beckmann Transport Models
   abbr: DBTM
   meta: Preprint 2026

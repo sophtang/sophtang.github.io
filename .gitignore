@@ -14,4 +14,7 @@ vendor
 # local image backups (not for commit)
 .image-backup/
 to_add.md
+_layouts/interactive-blog.liquid
+CLAUDE.md
+draft-projects/
 projects/
